@@ -1,10 +1,12 @@
 ﻿var questions = [];
 var questionObjects = [];
 var nextQuestion = 0;
+questions.push('F|Defenestration is the act of being thrown out of a __.|window');
+questions.push('M|What animal does Ace save at the beginning of the movie "Ace Ventura"?|a dog|an elephant|a chimpanzee|a snake|0');
+questions.push('M|In The Green Lantern comic book series, what is the color used to represent will power?|orange|blue|yellow|green|3');
+questions.push('F|__ is the most mountainous country in Europe.|Switzerland');
+questions.push('M|Which Constitutional amendment gave Congress the power to levy tax on personal incomes?|Tenth|Twelfth|Fourteenth|Sixteenth|3');
 
-questions.push("M|MCQuestion|A. Blah|B. Blah|C. Blah|D. Blah|3");
-questions.push("M|MCQuestion|A. Blah|B. Blah|C. Blah|D. Blah|2");
-questions.push("F|Questi__on1|Aa");
 
 window.onload = function () {
     storeQuestions();
@@ -72,13 +74,15 @@ var storeQuestions = function() {
                 break;
             case 'M':
                 var multipleChoice = new MultipleChoice(temp[1], temp.slice(2, temp.length - 1), temp.pop());
+                //Overwrite numerical answer with answer value
+                multipleChoice.correctAnswer = multipleChoice.answers[multipleChoice.correctAnswer];
                 multipleChoice.questionType = questionType;
                 multipleChoice.question = '<p>' + multipleChoice.question + '</p>';
                 multipleChoice.question += '<ul>';
                 multipleChoice.radioGroupName = 'mcq' + i;
                 for (var j in multipleChoice.answers) {
                     multipleChoice.question += '<li><input type="radio" name="'
-                        + multipleChoice.radioGroupName + '" value="' + j + '">'
+                        + multipleChoice.radioGroupName + '" value="' + multipleChoice.answers[j] + '">'
                         + multipleChoice.answers[j] + '</li>';
                 }
                 multipleChoice.question += '<ul>';
@@ -98,7 +102,7 @@ var storeAnswer = function (index) {
             var radioButtons = document.getElementsByName(currentQuestion.radioGroupName);
             for (var i in radioButtons) {
                 if (radioButtons[i].checked) {
-                    currentQuestion.userAnswer = i;
+                    currentQuestion.userAnswer = radioButtons[i].value;
                     currentQuestion.correct = (currentQuestion.userAnswer == currentQuestion.correctAnswer);
                 }
             }

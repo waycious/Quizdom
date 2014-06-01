@@ -1,3 +1,32 @@
 ﻿body {
+    background-color: royalblue;
+    color: white;
+    
+    font-family: 'Signika', sans-serif;
+}
+#quizArea {
+    padding: 2em;
+    font-size: 3em;
+}
 
+ul {
+    list-style: none;
+}
+
+input[type='radio'] {   
+   display:inline;
+   vertical-align:middle;
+   margin-right: 1.5em;
+}
+
+input[type='text'] {
+    font-family: 'Signika', sans-serif;
+    font-size: 1em;
+    vertical-align: baseline;
+    background-color: royalblue;
+    border: none;
+    border-bottom: 4px solid white;
+    color: white;
+    height: 1.1em;
+    text-align: center;
 }
