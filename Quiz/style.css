@@ -1,11 +1,16 @@
-﻿body {
-    background-color: royalblue;
+﻿
+body {
+    background-color: dodgerblue;
     color: white;
-    
     font-family: 'Signika', sans-serif;
 }
+
+h1 {
+    text-shadow: .2rem .2rem dodgerblue, .6rem .5rem #0c70dd; 
+    margin-top: 0;
+}
 #quizArea {
-    padding: 2em;
+    padding: 1em 2em;
     font-size: 3em;
 }
 
@@ -13,20 +18,79 @@ ul {
     list-style: none;
 }
 
-input[type='radio'] {   
-   display:inline;
-   vertical-align:middle;
-   margin-right: 1.5em;
+#question-area li {
+    margin: 0.2em 0;
 }
 
-input[type='text'] {
+#score li{
+    font-size: 1rem;
+    margin: 0.5em;
+}
+
+#score ul {
+    font-size: 0.5em;
+}
+
+input[type='radio'] {   
+   display:inline;
+   vertical-align: middle;
+   margin-right: 1.5em;
+   margin-bottom: 0.2em;
+   height: 1.8em;
+   width: 1.8em;
+   background-color: dodgerblue;
+   color: white;
+}
+
+input[type='text'], input[type='number'], select {
     font-family: 'Signika', sans-serif;
     font-size: 1em;
     vertical-align: baseline;
-    background-color: royalblue;
+    background-color: dodgerblue;
     border: none;
     border-bottom: 4px solid white;
     color: white;
     height: 1.1em;
     text-align: center;
+}
+
+select {
+    border: 2px solid white;
+    text-align: left;
+    background-color: white;
+    color: dodgerblue;
+    border-radius: .1em;
+}
+
+button {
+    font-family: 'Signika', sans-serif;
+    font-size: 1em;
+    vertical-align: baseline;
+    background-color: white;
+    border: 2px solid white;
+    padding: .5em 1em;
+    overflow: visible;
+    color: #0c70dd;
+    border-radius: .4em;
+    box-shadow: .2em .2em #0c70dd; 
+    float: left;
+    margin-right: 1em;
+
+}
+
+#next-button, #prev-button, #question-form, #multiple-choice, #fill-in-the-blank, #finish-screen{
+    display: none;
+}
+#mc-answer-textboxes, #fill-in-the-blank {
+    margin-bottom: 2em;
+}
+
+#add-question-button {
+    margin-bottom: 1em;
+    display: block;
+}
+
+#start-again-button {
+    margin: 1em 0;
+    display: block;
 }

@@ -7,12 +7,42 @@
 </head>
 <body>
     <div id="quizArea">
-        <div id="questionArea">
-            <div id="question"></div>
-            <button onclick="showNextQuestion();">Next Question</button>
+        <div id="begin-quiz">
+            <h1>Welcome to Quizdom!</h1>
+            <p>Enter number of quiz questions: <input id="num-questions" type="number" min="1" max="5" size="2" /></p><br />
+            <button onclick="beginQuiz();">Start the quiz!</button>
+            <button onclick="showQuestionForm(); updateForm();">Add new questions</button>
         </div>
-        <div id="score"></div>
-        <script src="script.js"></script>
+        <div id="question-area">
+            <div id="question"></div>
+            <button id="next-button" onclick="showNextQuestion();">Next Question</button>
+            <button id="prev-button" onclick="showPrevQuestion();">Previous Question</button>
+        </div>
+        <div id="finish-screen">
+            <div id="score"></div>
+            <button id="start-again-button" onclick="returnToStart();">Start again</button>
+        </div>
+        <div id="question-form">
+            <h1>Enter your question</h1>
+            <label>question type: </label>
+            <select id="question-type" onchange="updateForm();">
+                <option value="M">Mutiple Choice</option>
+                <option value="F">Fill in the Blank</option>
+            </select>
+            <div id="multiple-choice">
+                <label>question: </label><input type="text" id="mc-question-textbox" />
+                <div id="mc-answer-textboxes"></div>
+                <button id ="add-answer-field-button" onclick="addAnswerField();">Add answer field</button>
+            </div>
+            <div id="fill-in-the-blank">
+                <label>question (use a double underscore for blank): </label><input type="text" id="fib-question-textbox" /><br />
+                <label>answer: </label><input type="text" id="answer-textbox" />
+            </div>
+            <button id="add-question-button" onclick="addQuestion();">Add question</button>
+            <button onclick="returnToStart();">Back</button>
+        </div>
     </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
